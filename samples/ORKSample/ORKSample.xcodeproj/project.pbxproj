@@ -36,6 +36,23 @@
 		BC2A3CDE1C58F1DB00DA64B7 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A3CDC1C58F1DB00DA64B7 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		278DA7A424A49F6600F0BB16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 278DA79E24A49F6500F0BB16 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		278DA7A624A49F6600F0BB16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 278DA79E24A49F6500F0BB16 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		BC2A3CDF1C58F1DB00DA64B7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -66,6 +83,7 @@
 		16BF5B681BE2974A007C79C6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ORKSample/ProfileViewController.swift; sourceTree = "<group>"; };
 		16BF5B6E1BE2BE77007C79C6 /* HealthClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthClientType.swift; path = ORKSample/HealthClientType.swift; sourceTree = "<group>"; };
 		16BF5B701BE2C989007C79C6 /* ProfileStaticTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileStaticTableViewCell.swift; path = ORKSample/ProfileStaticTableViewCell.swift; sourceTree = "<group>"; };
+		278DA79E24A49F6500F0BB16 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		86CCDFF51C1B50970042AA39 /* ResearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResearchContainerViewController.swift; path = ORKSample/ResearchContainerViewController.swift; sourceTree = SOURCE_ROOT; };
 		B5C2073E1BEC16F00051D9D8 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResearchContainerSegue.swift; path = ORKSample/ResearchContainerSegue.swift; sourceTree = "<group>"; };
 		B5C207411BECBA8B0051D9D8 /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WithdrawViewController.swift; path = ORKSample/WithdrawViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +116,7 @@
 		161479B71BD6CE8F0099A068 = {
 			isa = PBXGroup;
 			children = (
+				278DA79E24A49F6500F0BB16 /* ResearchKit.xcodeproj */,
 				BC2A3CA81C58E92600DA64B7 /* Frameworks */,
 				161479C21BD6CE8F0099A068 /* ORKSample */,
 				161479C11BD6CE8F0099A068 /* Products */,
@@ -201,6 +220,15 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		278DA79F24A49F6500F0BB16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				278DA7A524A49F6600F0BB16 /* ResearchKit.framework */,
+				278DA7A724A49F6600F0BB16 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B5C207401BECBA710051D9D8 /* Withdrawal */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,12 +301,35 @@
 			mainGroup = 161479B71BD6CE8F0099A068;
 			productRefGroup = 161479C11BD6CE8F0099A068 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 278DA79F24A49F6500F0BB16 /* Products */;
+					ProjectRef = 278DA79E24A49F6500F0BB16 /* ResearchKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				161479BF1BD6CE8F0099A068 /* ORKSample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		278DA7A524A49F6600F0BB16 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 278DA7A424A49F6600F0BB16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		278DA7A724A49F6600F0BB16 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 278DA7A624A49F6600F0BB16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		161479BE1BD6CE8F0099A068 /* Resources */ = {
