@@ -868,6 +868,10 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let appleAnswerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: appleChoices)
         
+        scaleAnswerFormat.shouldShowDontKnowButton = true
+        let formItem05 = ORKFormItem(identifier: "テストid", text: "テストtext", answerFormat: scaleAnswerFormat)
+        formItem05.showsProgress = true
+        
         let appleFormItem = ORKFormItem(identifier: "appleFormItemIdentifier", text: "Which is your favorite apple?", answerFormat: appleAnswerFormat)
         
         
@@ -876,7 +880,8 @@ enum TaskListRow: Int, CustomStringConvertible {
             formItem03,
             formItem04,
             formItem01,
-            formItem02
+            formItem02,
+            formItem05
         ]
         let completionStep = ORKCompletionStep(identifier: "CompletionStep")
         completionStep.title = NSLocalizedString("All Done!", comment: "")
