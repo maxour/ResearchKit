@@ -61,6 +61,7 @@ class SystemSound {
 */
 enum TaskListRow: Int, CustomStringConvertible {
     case form = 0
+    case compactForm    // songchong add
     case groupedForm
     case survey
     case booleanQuestion
@@ -135,6 +136,7 @@ enum TaskListRow: Int, CustomStringConvertible {
             TaskListRowSection(title: "Surveys", rows:
                 [
                     .form,
+                    .compactForm,   // songchong add
                     .groupedForm,
                     .survey
                 ]),
@@ -212,6 +214,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         switch self {
         case .form:
             return NSLocalizedString("Form Survey Example", comment: "")
+            
+        case .compactForm:
+            return NSLocalizedString("Form Survey Example", comment: "")    // songchong add
             
         case .groupedForm:
             return NSLocalizedString("Grouped Form Survey Example", comment: "")
@@ -400,6 +405,7 @@ enum TaskListRow: Int, CustomStringConvertible {
     enum Identifier {
         // Task with a form, where multiple items appear on one page.
         case formTask
+        case compactFormTask    // songchong add
         case groupedFormTask
         case formStep
         case groupedFormStep
@@ -589,6 +595,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         switch self {
         case .form:
             return formTask
+        
+        case .compactForm:
+            return compactFormTask  // songchong add
             
         case .groupedForm:
             return groupedFormTask
@@ -769,6 +778,61 @@ enum TaskListRow: Int, CustomStringConvertible {
     diastolic values.
     */
     private var formTask: ORKTask {
+        let step = ORKFormStep(identifier: String(describing: Identifier.formStep), title: NSLocalizedString("Form Step", comment: ""), text: exampleDetailText)
+
+        // A first field, for entering an integer.
+        let formItem01Text = NSLocalizedString("Field01", comment: "")
+        let formItem01 = ORKFormItem(identifier: String(describing: Identifier.formItem01), text: formItem01Text, answerFormat: ORKAnswerFormat.integerAnswerFormat(withUnit: nil))
+        formItem01.placeholder = NSLocalizedString("Your placeholder here", comment: "")
+
+        // A second field, for entering a time interval.
+        let formItem02Text = NSLocalizedString("Field02", comment: "")
+        let formItem02 = ORKFormItem(identifier: String(describing: Identifier.formItem02), text: formItem02Text, answerFormat: ORKTimeIntervalAnswerFormat())
+        formItem02.placeholder = NSLocalizedString("Your placeholder here", comment: "")
+
+        let formItem03Text = NSLocalizedString(exampleQuestionText, comment: "")
+        let scaleAnswerFormat = ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 0, defaultValue: 0, step: 1)//ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 0, defaultValue: 0, step: 1)
+        scaleAnswerFormat.shouldHideRanges = true
+        let formItem03 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem03Text, answerFormat: scaleAnswerFormat)
+
+        let textChoices: [ORKTextChoice] = [
+            ORKTextChoice(text: "choice 1", detailText: "detail 1", value: 1 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
+            ORKTextChoice(text: "choice 2", detailText: "detail 2", value: 2 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
+            ORKTextChoice(text: "choice 3", detailText: "detail 3", value: 3 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
+            ORKTextChoice(text: "choice 4", detailText: "detail 4", value: 4 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
+            ORKTextChoice(text: "choice 5", detailText: "detail 5", value: 5 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
+            ORKTextChoice(text: "choice 6", detailText: "detail 6", value: 6 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false)
+        ]
+        
+        let textScaleAnswerFormat = ORKTextScaleAnswerFormat(textChoices: textChoices, defaultIndex: 10)
+        textScaleAnswerFormat.shouldHideLabels = true
+        textScaleAnswerFormat.shouldShowDontKnowButton = true
+        let formItem04 = ORKFormItem(identifier: String(describing: Identifier.formItem04), text: exampleQuestionText, answerFormat: textScaleAnswerFormat)
+        
+        let appleChoices: [ORKTextChoice] = [ORKTextChoice(text: "Granny Smith", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "Honeycrisp", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "Fuji", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "McIntosh", value: 10 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "Kanzi", value: 5 as NSCoding & NSCopying & NSObjectProtocol)]
+        
+        let appleAnswerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: appleChoices)
+        
+        let appleFormItem = ORKFormItem(identifier: "appleFormItemIdentifier", text: "Which is your favorite apple?", answerFormat: appleAnswerFormat)
+        
+        
+        step.formItems = [
+            appleFormItem,
+            formItem03,
+            formItem04,
+            formItem01,
+            formItem02
+        ]
+        let completionStep = ORKCompletionStep(identifier: "CompletionStep")
+        completionStep.title = NSLocalizedString("All Done!", comment: "")
+        completionStep.detailText = NSLocalizedString("You have completed the questionnaire.", comment: "")
+        return ORKOrderedTask(identifier: String(describing: Identifier.formTask), steps: [step, completionStep])
+    }
+    
+    /**
+    songchong add
+    */
+    private var compactFormTask: ORKTask {
         let step = ORKFormStep(identifier: String(describing: Identifier.formStep), title: NSLocalizedString("Form Step", comment: ""), text: exampleDetailText)
 
         // A first field, for entering an integer.
