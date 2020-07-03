@@ -16,7 +16,13 @@ class QRCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set data to qrDataString
+        let defaults = UserDefaults.standard
+        let qrData = defaults.string(forKey: "qrData")
+        qrDataString.text = qrData
+        self.textFieldDidChange()
+        
         // Do any additional setup after loading the view.
         qrDataString.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         correctionLevelField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)

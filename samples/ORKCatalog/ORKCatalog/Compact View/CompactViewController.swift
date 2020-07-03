@@ -20,7 +20,21 @@ class CompactViewController: UIViewController {
     @IBOutlet weak var intBlodBenField: UISegmentedControl!
     @IBOutlet weak var intStomachAcheField: UISegmentedControl!
     
-    
+    @IBAction func goNext(_ sender: Any) {
+        // save current status before go next
+        let defaults = UserDefaults.standard
+        var qrData = ""
+        qrData += String(isFeverField.isOn) + ","
+        qrData += String(isBudouenField.isOn) + ","
+        qrData += String(numBenBeforeField.text!) + ","
+        qrData += String(numHeightField.text!) + ","
+        qrData += String(numWeightField.text!) + ","
+        qrData += String(numBenNowField.text!) + ","
+        qrData += String(intBenStatusField.selectedSegmentIndex) + ","
+        qrData += String(intBlodBenField.selectedSegmentIndex) + ","
+        qrData += String(intStomachAcheField.selectedSegmentIndex)
+        defaults.set(qrData, forKey: "qrData")
+    }
     
     // back to Compact View
     @IBAction func comeHome (segue: UIStoryboardSegue) {

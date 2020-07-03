@@ -267,6 +267,7 @@
                                         <rect key="frame" x="328" y="572" width="31" height="30"/>
                                         <state key="normal" title="次へ"/>
                                         <connections>
+                                            <action selector="goNext:" destination="v4F-fQ-13k" eventType="touchUpInside" id="h1e-u1-ltU"/>
                                             <segue destination="Z6E-nE-ORD" kind="presentation" id="aZh-Lp-imV"/>
                                         </connections>
                                     </button>
