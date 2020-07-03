@@ -12,11 +12,38 @@ class QRCodeViewController: UIViewController {
     
     @IBOutlet weak var qrDataString: UITextField!
     @IBOutlet weak var qrImageView: UIImageView!
+    @IBOutlet weak var correctionLevelField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        qrDataString.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        correctionLevelField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+    }
+    
+    enum InputCorrectionLevel: String {
+        case L
+        case M
+        case Q
+        case H
+    }
+
+    private var QRImage: UIImage? {
+        guard let qrData = qrDataString.text,
+            let correctionLevelString = correctionLevelField.text,
+            let correctionLevel = InputCorrectionLevel(rawValue: correctionLevelString) else { return nil }
+        let data = qrData.data(using: .utf8)!
+
+        let qr = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": data, "inputCorrectionLevel": correctionLevel.rawValue])!
+        let sizeTransform = CGAffineTransform(scaleX: 10, y: 10)
+        let qrImage = qr.outputImage!.transformed(by: sizeTransform)
+        let image = UIImage(ciImage: qrImage)
+        return image
+    }
+
+    @objc func textFieldDidChange() {
+        qrImageView.image = QRImage
     }
     
 
