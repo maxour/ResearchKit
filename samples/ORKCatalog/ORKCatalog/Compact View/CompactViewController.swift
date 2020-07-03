@@ -2,13 +2,23 @@
 //  CompactViewController.swift
 //  ORKCatalog
 //
-//  Created by 宋チュウ on 2020/07/02.
+//  Created by 宋チュウ on 2020/07/03.
 //  Copyright © 2020 researchkit.org. All rights reserved.
 //
 
 import UIKit
 
 class CompactViewController: UIViewController {
+
+    @IBOutlet weak var isFeverField: UISwitch!
+    @IBOutlet weak var isBudouenField: UISwitch!
+    @IBOutlet weak var numBenBeforeField: UITextField!
+    @IBOutlet weak var numHeightField: UITextField!
+    @IBOutlet weak var numWeightField: UITextField!
+    @IBOutlet weak var numBenNowField: UITextField!
+    @IBOutlet weak var intBenStatusField: UISegmentedControl!
+    @IBOutlet weak var intBlodBenField: UISegmentedControl!
+    @IBOutlet weak var intStomachAcheField: UISegmentedControl!
     
     
     
@@ -18,7 +28,7 @@ class CompactViewController: UIViewController {
         // segue have to call the home func
         // call the func in new view would not work
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
