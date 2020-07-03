@@ -1,21 +1,14 @@
 //
-//  CompactViewController.swift
+//  QRCodeViewController.swift
 //  ORKCatalog
 //
-//  Created by 宋チュウ on 2020/07/02.
+//  Created by 宋チュウ on 2020/07/03.
 //  Copyright © 2020 researchkit.org. All rights reserved.
 //
 
 import UIKit
 
-class CompactViewController: UIViewController {
-    
-    // back to Compact View
-    @IBAction func comeHome (segue: UIStoryboardSegue) {
-        // then setting in Story Board
-        // segue have to call the home func
-        // call the func in new view would not work
-    }
+class QRCodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
