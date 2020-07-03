@@ -9,7 +9,10 @@
 import UIKit
 
 class QRCodeViewController: UIViewController {
-
+    
+    @IBOutlet weak var qrDataString: UITextField!
+    @IBOutlet weak var qrImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

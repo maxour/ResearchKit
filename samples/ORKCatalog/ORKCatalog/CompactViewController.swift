@@ -10,6 +10,8 @@ import UIKit
 
 class CompactViewController: UIViewController {
     
+    
+    
     // back to Compact View
     @IBAction func comeHome (segue: UIStoryboardSegue) {
         // then setting in Story Board
