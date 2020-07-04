@@ -133,10 +133,13 @@ enum TaskListRow: Int, CustomStringConvertible {
     static var sections: [ TaskListRowSection ] {
         
         return [
+            TaskListRowSection(title: "簡易問診票", rows:
+                [
+                    .compactForm   // songchong add
+                ]),
             TaskListRowSection(title: "Surveys", rows:
                 [
                     .form,
-                    .compactForm,   // songchong add
                     .groupedForm,
                     .survey
                 ]),
@@ -216,7 +219,7 @@ enum TaskListRow: Int, CustomStringConvertible {
             return NSLocalizedString("Form Survey Example", comment: "")
             
         case .compactForm:
-            return NSLocalizedString("Form Survey Example", comment: "")    // songchong add
+            return "１画面にまとめる問診票"    // songchong add
             
         case .groupedForm:
             return NSLocalizedString("Grouped Form Survey Example", comment: "")
@@ -833,59 +836,88 @@ enum TaskListRow: Int, CustomStringConvertible {
     songchong add
     */
     private var compactFormTask: ORKTask {
-        let step = ORKFormStep(identifier: String(describing: Identifier.formStep), title: NSLocalizedString("Form Step", comment: ""), text: exampleDetailText)
-
-        // A first field, for entering an integer.
-        let formItem01Text = NSLocalizedString("Field01", comment: "")
+        let step = ORKFormStep(identifier: String(describing: Identifier.formStep), title: "簡易問診票", text: "以下の質問をご回答お願いします。")
+        
+        //Start of first section
+        let learnMoreInstructionStep01 = ORKLearnMoreInstructionStep(identifier: "LearnMoreInstructionStep01")
+        learnMoreInstructionStep01.title = "補足説明"
+        learnMoreInstructionStep01.text = "補足説明をご確認ください。"
+        let learnMoreItem01 = ORKLearnMoreItem(text: nil, learnMoreInstructionStep: learnMoreInstructionStep01)
+        let section01 = ORKFormItem(sectionTitle: "基本情報", detailText: "以下に基本情報をご回答ください", learnMoreItem: learnMoreItem01, showsProgress: true)
+        
+        // 身長
+        let formItem01Text = "身長"
         let formItem01 = ORKFormItem(identifier: String(describing: Identifier.formItem01), text: formItem01Text, answerFormat: ORKAnswerFormat.integerAnswerFormat(withUnit: nil))
-        formItem01.placeholder = NSLocalizedString("Your placeholder here", comment: "")
-
-        // A second field, for entering a time interval.
-        let formItem02Text = NSLocalizedString("Field02", comment: "")
-        let formItem02 = ORKFormItem(identifier: String(describing: Identifier.formItem02), text: formItem02Text, answerFormat: ORKTimeIntervalAnswerFormat())
-        formItem02.placeholder = NSLocalizedString("Your placeholder here", comment: "")
-
-        let formItem03Text = NSLocalizedString(exampleQuestionText, comment: "")
+        formItem01.placeholder = "あなたの身長(cm)を入力ください"
+        
+        // 体重
+        let formItem02Text = "体重"
+        let formItem02 = ORKFormItem(identifier: String(describing: Identifier.formItem02), text: formItem02Text, answerFormat: ORKAnswerFormat.integerAnswerFormat(withUnit: nil))
+        formItem02.placeholder = "あなたの体重(kg)を入力ください"
+        
+        // 発症前の便回数
+        let formItem03Text = "□発症前の便回数"
         let scaleAnswerFormat = ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 0, defaultValue: 0, step: 1)//ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 0, defaultValue: 0, step: 1)
         scaleAnswerFormat.shouldHideRanges = true
-        let formItem03 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem03Text, answerFormat: scaleAnswerFormat)
-
-        let textChoices: [ORKTextChoice] = [
-            ORKTextChoice(text: "choice 1", detailText: "detail 1", value: 1 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
-            ORKTextChoice(text: "choice 2", detailText: "detail 2", value: 2 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
-            ORKTextChoice(text: "choice 3", detailText: "detail 3", value: 3 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
-            ORKTextChoice(text: "choice 4", detailText: "detail 4", value: 4 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
-            ORKTextChoice(text: "choice 5", detailText: "detail 5", value: 5 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false),
-            ORKTextChoice(text: "choice 6", detailText: "detail 6", value: 6 as NSCoding & NSCopying & NSObjectProtocol, exclusive: false)
-        ]
-        
-        let textScaleAnswerFormat = ORKTextScaleAnswerFormat(textChoices: textChoices, defaultIndex: 10)
-        textScaleAnswerFormat.shouldHideLabels = true
-        textScaleAnswerFormat.shouldShowDontKnowButton = true
-        let formItem04 = ORKFormItem(identifier: String(describing: Identifier.formItem04), text: exampleQuestionText, answerFormat: textScaleAnswerFormat)
-        
-        let appleChoices: [ORKTextChoice] = [ORKTextChoice(text: "Granny Smith", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "Honeycrisp", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "Fuji", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "McIntosh", value: 10 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "Kanzi", value: 5 as NSCoding & NSCopying & NSObjectProtocol)]
-        
-        let appleAnswerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: appleChoices)
-        
         scaleAnswerFormat.shouldShowDontKnowButton = true
-        let formItem05 = ORKFormItem(identifier: "テストid", text: "テストtext", answerFormat: scaleAnswerFormat)
-        formItem05.showsProgress = true
+        let formItem03 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem03Text, answerFormat: scaleAnswerFormat)
+        formItem03.placeholder = NSLocalizedString("Your placeholder here", comment: "")
         
-        let appleFormItem = ORKFormItem(identifier: "appleFormItemIdentifier", text: "Which is your favorite apple?", answerFormat: appleAnswerFormat)
+        // 現在の便回数
+        let formItem04Text = "■現在の便回数"
+        scaleAnswerFormat.shouldHideRanges = true
+        let formItem04 = ORKFormItem(identifier: String(describing: Identifier.formItem04), text: formItem04Text, answerFormat: scaleAnswerFormat)
+        formItem04.placeholder = NSLocalizedString("Your placeholder here", comment: "")
         
+        // 現在の便の状態
+        let nowBenStatusChoices: [ORKTextChoice] = [ORKTextChoice(text: "硬便", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "普通便", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "軟便", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "水様便", value: 10 as NSCoding & NSCopying & NSObjectProtocol)]
+        
+        let benStatusAnswerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: nowBenStatusChoices)
+        
+        let formItem05 = ORKFormItem(identifier: "benStatusFormItemIdentifier", text: "■現在の便の状態", answerFormat: benStatusAnswerFormat)
+        
+        // 現在の血便の頻度
+        let nowBlodBenChoices: [ORKTextChoice] = [ORKTextChoice(text: "なし", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "排便時の半数以下でわずかに血液が付着", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "ほとんどの排便時に明らかな血液の混入", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "大部分が血液", value: 10 as NSCoding & NSCopying & NSObjectProtocol)]
+        
+        let blodBenAnswerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: nowBlodBenChoices)
+        
+        let formItem06 = ORKFormItem(identifier: "blodBenFormItemIdentifier", text: "■現在の血便の頻度", answerFormat: blodBenAnswerFormat)
+        
+        // その他の症状
+        let otherSymptomChoices: [ORKTextChoice] = [ORKTextChoice(text: "38℃以上の発熱(大腸炎による)", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "虹彩炎・ぶどう膜炎", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "結節性紅斑・壊疽性膿皮症", value: 3 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "関節炎", value: 10 as NSCoding & NSCopying & NSObjectProtocol)]
+        
+        let otherSymptomAnswerFormat = ORKTextChoiceAnswerFormat(style: .multipleChoice, textChoices: otherSymptomChoices)
+        
+        let formItem07 = ORKFormItem(identifier: "otherSymptomFormItemIdentifier", text: "■その他症状の有無", answerFormat: otherSymptomAnswerFormat)
+        
+        /*
+        // 身長
+        let formItem2Text = "ここをタップして、身長を入力ください。"
+        let heightAnswerFormat = ORKHeightAnswerFormat(measurementSystem: ORKMeasurementSystem.metric)
+        heightAnswerFormat.shouldShowDontKnowButton = true
+        let formItem2 = ORKFormItem(identifier: String(describing: Identifier.formItem02), text: formItem2Text, answerFormat: heightAnswerFormat)
+        
+        // 体重
+        let formItem3Text = "ここをタップして、体重を入力ください。"
+        let weightAnswerFormat = ORKWeightAnswerFormat(measurementSystem: ORKMeasurementSystem.metric, numericPrecision: ORKNumericPrecision.default, minimumValue: 30.0, maximumValue: 120.0, defaultValue: 60.0)
+        weightAnswerFormat.shouldShowDontKnowButton = true
+        let formItem3 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem3Text, answerFormat: weightAnswerFormat)
+        
+        */
         
         step.formItems = [
-            appleFormItem,
-            formItem03,
-            formItem04,
+            section01,
             formItem01,
             formItem02,
-            formItem05
+            formItem03,
+            formItem04,
+            formItem05,
+            formItem06,
+            formItem07
         ]
         let completionStep = ORKCompletionStep(identifier: "CompletionStep")
-        completionStep.title = NSLocalizedString("All Done!", comment: "")
-        completionStep.detailText = NSLocalizedString("You have completed the questionnaire.", comment: "")
+        completionStep.title = "回答完了"
+        completionStep.detailText = "ご協力ありがとうございました！看護士声をかけて頂くか、少々お待ちください。"
         return ORKOrderedTask(identifier: String(describing: Identifier.formTask), steps: [step, completionStep])
     }
     
