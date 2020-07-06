@@ -912,7 +912,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         ]
         let completionStep = ORKCompletionStep(identifier: "CompletionStep")
         completionStep.title = "回答完了"
-        completionStep.detailText = "ご協力ありがとうございました！看護士声をかけて頂くか、少々お待ちください。"
+        completionStep.detailText = "ご協力ありがとうございました！\n上記のQRコードから入力データを読み取れます。"
+        completionStep.image = QRImage
+        completionStep.imageContentMode = .center
         return ORKOrderedTask(identifier: String(describing: Identifier.formTask), steps: [step, completionStep])
     }
     
@@ -990,7 +992,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         // completionStep
         let completionStep = ORKCompletionStep(identifier: "CompletionStep")
         completionStep.title = "回答完了"
-        completionStep.detailText = "ご協力ありがとうございました！看護士声をかけて頂くか、少々お待ちください。"
+        completionStep.image = QRImage
+        completionStep.imageContentMode = .center
+        completionStep.detailText = "ご協力ありがとうございました！\n上記のQRコードから入力データを読み取れます。"
         
         return ORKOrderedTask(identifier: String(describing: Identifier.formTask), steps: [step1, step2, step3, step4, step5, completionStep])
     }
@@ -2144,6 +2148,32 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         return consentDocument
     }
+    
+    // MARK: Additional functions
+    
+    /**
+    songchong add
+    */
+    enum InputCorrectionLevel: String {
+        case L
+        case M
+        case Q
+        case H
+    }
+    
+    private var QRImage: UIImage? {
+        guard let qrData = "QRCode test sample String" as String?,
+            let correctionLevelString = "H" as String?,     // cast String to String?
+            let correctionLevel = InputCorrectionLevel(rawValue: correctionLevelString) else { return nil }
+        let data = qrData.data(using: .utf8)!
+
+        let qr = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": data, "inputCorrectionLevel": correctionLevel.rawValue])!
+        let sizeTransform = CGAffineTransform(scaleX: 6, y: 6)  // change QRCode size
+        let qrImage = qr.outputImage!.transformed(by: sizeTransform)
+        let image = UIImage(ciImage: qrImage)
+        return image
+    }
+    
     
     // MARK: `ORKTask` Reused Text Convenience
     
