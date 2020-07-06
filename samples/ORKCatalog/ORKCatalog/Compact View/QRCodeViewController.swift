@@ -5,6 +5,9 @@
 //  Created by 宋チュウ on 2020/07/03.
 //  Copyright © 2020 researchkit.org. All rights reserved.
 //
+//  https://dev.classmethod.jp/articles/ios-swift-generate-and-read-qr/
+//
+//
 
 import UIKit
 
