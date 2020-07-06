@@ -560,7 +560,7 @@
         <!--First Page View-->
         <scene sceneID="Ut5-55-pUR">
             <objects>
-                <viewController storyboardIdentifier="firstPage" title="First Page View" id="LHm-nb-gcq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstPage" title="First Page View" id="LHm-nb-gcq" customClass="FirstViewController" customModule="ORKCatalog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4bq-UQ-7CN"/>
                         <viewControllerLayoutGuide type="bottom" id="SC0-X9-thT"/>
@@ -583,6 +583,29 @@
                                                     <segue destination="RoY-Qq-uqN" kind="unwind" unwindAction="comeHomeWithSegue:" id="gpf-2H-AJz"/>
                                                 </connections>
                                             </button>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yb6-ZB-ge6">
+                                                <rect key="frame" x="257" y="94" width="94" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="changeStepperValue:" destination="LHm-nb-gcq" eventType="valueChanged" id="2Wb-BT-Bjb"/>
+                                                </connections>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="現在の数値は" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-gk-QHr">
+                                                <rect key="frame" x="8" y="100" width="104" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-6f-A9k">
+                                                <rect key="frame" x="152" y="94" width="97" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="changeTextFieldValue:" destination="LHm-nb-gcq" eventType="editingDidEnd" id="xQ4-GJ-jfD"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -618,6 +641,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nDy-1O-572"/>
+                    <connections>
+                        <outlet property="currentIntStepper" destination="Yb6-ZB-ge6" id="ucH-L9-rJh"/>
+                        <outlet property="currentIntTextField" destination="cIe-6f-A9k" id="oxd-U8-Hwm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJr-tC-bsh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="RoY-Qq-uqN" userLabel="Exit" sceneMemberID="exit"/>
@@ -627,7 +654,7 @@
         <!--Second Page View-->
         <scene sceneID="Mgg-f9-Uo3">
             <objects>
-                <viewController storyboardIdentifier="secondPage" title="Second Page View" id="cdC-o1-vsx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondPage" title="Second Page View" id="cdC-o1-vsx" customClass="SecondViewController" customModule="ORKCatalog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eaS-Wj-urM"/>
                         <viewControllerLayoutGuide type="bottom" id="hgb-aR-kVz"/>
@@ -667,7 +694,7 @@
                     <tabBarItem key="tabBarItem" title="Tasks" image="first_tab" id="2mU-FW-pzx" userLabel="Catalog"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="z0R-bd-mkt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
