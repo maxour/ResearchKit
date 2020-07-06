@@ -12,7 +12,6 @@ class QRCodeViewController: UIViewController {
     
     @IBOutlet weak var qrDataString: UITextField!
     @IBOutlet weak var qrImageView: UIImageView!
-    @IBOutlet weak var correctionLevelField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,6 @@ class QRCodeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         qrDataString.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
-        correctionLevelField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     
     enum InputCorrectionLevel: String {
@@ -37,7 +35,7 @@ class QRCodeViewController: UIViewController {
 
     private var QRImage: UIImage? {
         guard let qrData = qrDataString.text,
-            let correctionLevelString = correctionLevelField.text,
+            let correctionLevelString = "H" as String?,     // cast String to String?
             let correctionLevel = InputCorrectionLevel(rawValue: correctionLevelString) else { return nil }
         let data = qrData.data(using: .utf8)!
 
