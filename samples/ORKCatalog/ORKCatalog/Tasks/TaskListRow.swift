@@ -1289,17 +1289,16 @@ enum TaskListRow: Int, CustomStringConvertible {
     */
     private var testFormTask: ORKTask {
         
-        let customizedActiveStep = CustomizedActiveStep(identifier: "customizedActiveStep")
-        customizedActiveStep.numberOfAttempts = 10
-        customizedActiveStep.title = "Customized"
-        customizedActiveStep.text = "Select the first letter of the name of the COLOR that is shown."
-        customizedActiveStep.spokenInstruction = customizedActiveStep.text
+        let customizedStep = CustomizedStep(identifier: "customizedStep")
+        customizedStep.numberOfAttempts = 10
+        customizedStep.title = "Customized"
+        customizedStep.text = "Select the first letter of the name of the COLOR that is shown."
         
-        let completionStep = ORKCompletionStep(identifier: "customizedActiveCompletionStep")
+        let completionStep = ORKCompletionStep(identifier: "customizedCompletionStep")
         completionStep.title = "Activity Complete"
         completionStep.text = "Your data will be analyzed and you will be notified when your results are ready."
         
-        return ORKOrderedTask(identifier: "customizedActiveTask", steps: [customizedActiveStep, completionStep])
+        return ORKOrderedTask(identifier: "customizedTask", steps: [customizedStep, completionStep])
     }
     
     

@@ -8,7 +8,7 @@
 
 import ResearchKit.Private
 
-internal class CustomizedContentView: ORKActiveStepCustomView {
+internal class CustomizedContentView: ORKQuestionStepCustomView {
     
     public var colorLabelText: String?
     public var colorLabelColor: UIColor?
@@ -16,28 +16,28 @@ internal class CustomizedContentView: ORKActiveStepCustomView {
     public let redButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("STROOP_COLOR_RED_INITIAL", for: .normal)
+        button.setTitle("あか", for: .normal)
         return button
     }()
     
     public let greenButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("STROOP_COLOR_GREEN_INITIAL", for: .normal)
+        button.setTitle("みどり", for: .normal)
         return button
     }()
     
     public let blueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("STROOP_COLOR_BLUE_INITIAL", for: .normal)
+        button.setTitle("あお", for: .normal)
         return button
     }()
     
     public let yellowButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("STROOP_COLOR_YELLOW_INITIAL", for: .normal)
+        button.setTitle("きいろ", for: .normal)
         return button
     }()
     
