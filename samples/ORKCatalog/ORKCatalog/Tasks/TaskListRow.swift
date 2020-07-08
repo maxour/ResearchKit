@@ -1288,45 +1288,18 @@ enum TaskListRow: Int, CustomStringConvertible {
     songchong add
     */
     private var testFormTask: ORKTask {
-        let step = ORKFormStep(identifier: String(describing: Identifier.formStep), title: "UI部品テスト画面", text: "以下の質問をご回答お願いします。")
         
-        //Start of first section
-        let learnMoreInstructionStep01 = ORKLearnMoreInstructionStep(identifier: "LearnMoreInstructionStep01")
-        learnMoreInstructionStep01.title = "補足説明"
-        learnMoreInstructionStep01.text = "補足説明をご確認ください。"
-        let learnMoreItem01 = ORKLearnMoreItem(text: nil, learnMoreInstructionStep: learnMoreInstructionStep01)
-        let section01 = ORKFormItem(sectionTitle: "基本情報", detailText: "以下に基本情報をご回答ください", learnMoreItem: learnMoreItem01, showsProgress: true)
+        let stroopStep = CustomizedStep(identifier: "stroopStep")
+        stroopStep.numberOfAttempts = 10
+        stroopStep.title = "Customized"
+        stroopStep.text = "Select the first letter of the name of the COLOR that is shown."
+        stroopStep.spokenInstruction = stroopStep.text
         
-        // 身長
-        let formItem01Text = "身長"
-        let formItem01 = ORKFormItem(identifier: String(describing: Identifier.formItem01), text: formItem01Text, answerFormat: ORKAnswerFormat.integerAnswerFormat(withUnit: nil))
-        formItem01.placeholder = "あなたの身長(cm)を入力ください"
+        let completionStep = ORKCompletionStep(identifier: "stroopCompletionStep")
+        completionStep.title = "Activity Complete"
+        completionStep.text = "Your data will be analyzed and you will be notified when your results are ready."
         
-        // 体重
-        let formItem02Text = "体重"
-        let formItem02 = ORKFormItem(identifier: String(describing: Identifier.formItem02), text: formItem02Text, answerFormat: ORKAnswerFormat.integerAnswerFormat(withUnit: nil))
-        formItem02.placeholder = "あなたの体重(kg)を入力ください"
-        
-        // 発症前の便回数
-        let formItem03Text = "□発症前の便回数"
-        //let valuePicker
-        //let answerFormat = ORKMultipleValuePickerAnswerFormat(valuePickers: [ORKValuePickerAnswerFormat])
-        let formItem03 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem03Text, answerFormat: ORKAnswerFormat.integerAnswerFormat(withUnit: nil))
-        formItem03.placeholder = NSLocalizedString("Your placeholder here", comment: "")
-        
-        
-        step.formItems = [
-            section01,
-            formItem01,
-            formItem02,
-            formItem03
-        ]
-        let completionStep = ORKCompletionStep(identifier: "CompletionStep")
-        completionStep.title = "回答完了"
-        completionStep.detailText = "ご協力ありがとうございました！\n上記のQRコードから入力データを読み取れます。"
-        completionStep.image = QRImage
-        completionStep.imageContentMode = .center
-        return ORKOrderedTask(identifier: String(describing: Identifier.formTask), steps: [step, completionStep])
+        return ORKOrderedTask(identifier: "stroopTask", steps: [stroopStep, completionStep])
     }
     
     
