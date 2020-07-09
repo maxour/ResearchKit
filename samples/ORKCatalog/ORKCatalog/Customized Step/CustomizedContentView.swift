@@ -76,7 +76,7 @@ internal class CustomizedContentView: UIView {
     
     internal func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        //self.backgroundColor = UIColor.red
+        self.backgroundColor = UIColor.systemGray2
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.spacing = buttonStackViewSpacing
         buttonStackView.axis = .horizontal

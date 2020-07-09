@@ -28,22 +28,12 @@ public class CustomizedStep: ORKCustomStep {
     
     public override init(identifier: String) {
         super.init(identifier: identifier)
-        
-//        shouldVibrateOnStart = true
-//        shouldShowDefaultTimer = false
-//        shouldContinueOnFinish = true
-//        stepDuration = TimeInterval(NSIntegerMax)
     }
     
     public override func validateParameters() {
         super.validateParameters()
         assert(numberOfAttempts >= minimumAttempts, "number of attempts should be greater or equal to \(minimumAttempts)")
     }
-    
-//    public override func startsFinished() -> Bool {
-//        return false
-//    }
-    
     
     public override var allowsBackNavigation: Bool {
         return false
