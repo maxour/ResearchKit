@@ -58,8 +58,12 @@ public class CustomizedActiveStepViewController: ORKActiveStepViewController {
         differentColorLabels[yellowString] = [red, blue, green]
         differentColorLabels[greenString]  = [red, blue, yellow]
 
-        activeStepView?.activeCustomView = stroopContentView
-        activeStepView?.customContentFillsAvailableSpace = true
+        // you can use this
+        //activeStepView?.activeCustomView = stroopContentView
+        //activeStepView?.customContentFillsAvailableSpace = true
+        
+        // or you can use customView
+        customView = stroopContentView
         
         stroopContentView.redButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         stroopContentView.greenButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)

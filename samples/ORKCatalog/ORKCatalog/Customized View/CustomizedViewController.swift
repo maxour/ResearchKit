@@ -18,6 +18,8 @@ class CustomizedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        centerStackView.backgroundColor = .none
 
         // Do any additional setup after loading the view.
         let backgroundColor01 = UIColor.lightGray
@@ -33,6 +35,14 @@ class CustomizedViewController: UIViewController {
         button02.backgroundColor = backgroundColor02
         button02.translatesAutoresizingMaskIntoConstraints = false
         centerStackView.addArrangedSubview(button02)
+        
+        var newSwitch:UISwitch
+        for _ in 0...100 {
+            newSwitch = UISwitch()
+            newSwitch.isOn = true
+            centerScrollView.addSubview(newSwitch)
+        }
+        
         
     }
     

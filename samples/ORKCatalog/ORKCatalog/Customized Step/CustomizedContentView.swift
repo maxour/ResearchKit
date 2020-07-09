@@ -8,7 +8,7 @@
 
 import ResearchKit.Private
 
-internal class CustomizedContentView: ORKQuestionStepCustomView {
+internal class CustomizedContentView: UIView {
     
     public var colorLabelText: String?
     public var colorLabelColor: UIColor?
@@ -16,6 +16,7 @@ internal class CustomizedContentView: ORKQuestionStepCustomView {
     public let redButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.lightGray
         button.setTitle("あか", for: .normal)
         return button
     }()
@@ -23,6 +24,7 @@ internal class CustomizedContentView: ORKQuestionStepCustomView {
     public let greenButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.lightGray
         button.setTitle("みどり", for: .normal)
         return button
     }()
@@ -30,6 +32,7 @@ internal class CustomizedContentView: ORKQuestionStepCustomView {
     public let blueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.lightGray
         button.setTitle("あお", for: .normal)
         return button
     }()
@@ -37,6 +40,7 @@ internal class CustomizedContentView: ORKQuestionStepCustomView {
     public let yellowButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.lightGray
         button.setTitle("きいろ", for: .normal)
         return button
     }()
@@ -72,6 +76,7 @@ internal class CustomizedContentView: ORKQuestionStepCustomView {
     
     internal func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
+        //self.backgroundColor = UIColor.red
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.spacing = buttonStackViewSpacing
         buttonStackView.axis = .horizontal

@@ -32,10 +32,15 @@ public class CustomizedStepViewController: ORKStepViewController {
     
     public override init(step: ORKStep?) {
         super.init(step: step)
+        //suspendIfInactive = true
     }
     
     internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func customizedStep() -> CustomizedStep {
+        return step as! CustomizedStep
     }
     
     public override func viewDidLoad() {
@@ -53,13 +58,18 @@ public class CustomizedStepViewController: ORKStepViewController {
         differentColorLabels[yellowString] = [red, blue, green]
         differentColorLabels[greenString]  = [red, blue, yellow]
         
+        self.view = customizedContentView
+        //view?.inputView = customizedContentView
+        //activeStepView?.activeCustomView = stroopContentView
+        //activeStepView?.customContentFillsAvailableSpace = true
         
-        customizedContentView.redButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        customizedContentView.greenButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        customizedContentView.blueButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        customizedContentView.yellowButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//        customizedContentView.redButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//        customizedContentView.greenButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//        customizedContentView.blueButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//        customizedContentView.yellowButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
-    
+
+/*
     @objc
     private func buttonPressed(sender: Any) {
         
@@ -82,8 +92,15 @@ public class CustomizedStepViewController: ORKStepViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        start()
     }
-    
+
+     public override func stepDidFinish() {
+         super.stepDidFinish()
+         stroopContentView.finishStep(self)
+         goForward()
+     }
+     
     public override var result: ORKStepResult? {
         let stepResult = super.result
         if results != nil {
@@ -101,7 +118,46 @@ public class CustomizedStepViewController: ORKStepViewController {
         customizedResult.colorSelected = colorSelected
         results?.add(customizedResult)
     }
+
     
+    @objc
+    private func startNextQuestionOrFinish() {
+        if nextQuestionTimer != nil {
+            nextQuestionTimer?.invalidate()
+            nextQuestionTimer = nil
+        }
+        questionNumber += 1
+        if questionNumber == stroopStep().numberOfAttempts {
+            finish()
+        } else {
+            startQuestion()
+        }
+    }
+    
+    private func startQuestion() {
+        let pattern: Int = Int(arc4random()) % 2
+        if pattern == 0 {
+            let index: Int = Int(arc4random()) % differentColorLabels.keys.count
+            let text = Array(differentColorLabels.keys)[index]
+            stroopContentView.setColorLabelText(colorLabelText: text)
+            let color = colors[text]!
+            stroopContentView.colorLabelColor = color
+            stroopContentView.setColorLabelColor(colorLabelColor: color)
+        } else {
+            let index: Int = Int(arc4random()) % differentColorLabels.keys.count
+            let text = Array(differentColorLabels.keys)[index]
+            stroopContentView.setColorLabelText(colorLabelText: text)
+            let colorArray = differentColorLabels[text]!
+            let randomColorIndex = Int(arc4random()) % colorArray.count
+            let color = colorArray[randomColorIndex]
+            stroopContentView.setColorLabelColor(colorLabelColor: color)
+        }
+        
+        setButtonsEnabled()
+        startTime = ProcessInfo.processInfo.systemUptime
+    }
+    
+     
     private func setButtonDisabled() {
         
         customizedContentView.redButton.isEnabled = false
@@ -117,4 +173,6 @@ public class CustomizedStepViewController: ORKStepViewController {
         customizedContentView.blueButton.isEnabled = true
         customizedContentView.yellowButton.isEnabled = true
     }
+*/
+
 }
