@@ -10,6 +10,7 @@
 		03F7FD9F23959DD500432EF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F7FD9E23959DD500432EF6 /* SceneDelegate.swift */; };
 		2700FEC724AEFF2400CDDB0C /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700FEC624AEFF2400CDDB0C /* QRCodeViewController.swift */; };
 		2700FEC924AF09B200CDDB0C /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700FEC824AF09B200CDDB0C /* CompactViewController.swift */; };
+		271B552024B6C4C100B7F25A /* CustomizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B551F24B6C4C100B7F25A /* CustomizedViewController.swift */; };
 		271B93DD24B30DAC001D6FF0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B93DC24B30DAC001D6FF0 /* PageViewController.swift */; };
 		271B93E224B3150F001D6FF0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B93E124B3150F001D6FF0 /* FirstViewController.swift */; };
 		271B93E424B3153D001D6FF0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B93E324B3153D001D6FF0 /* SecondViewController.swift */; };
@@ -116,6 +117,7 @@
 		2700FEAE24AC8C9B00CDDB0C /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		2700FEC624AEFF2400CDDB0C /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = "Compact View/QRCodeViewController.swift"; sourceTree = "<group>"; };
 		2700FEC824AF09B200CDDB0C /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompactViewController.swift; path = "Compact View/CompactViewController.swift"; sourceTree = "<group>"; };
+		271B551F24B6C4C100B7F25A /* CustomizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomizedViewController.swift; path = "Customized View/CustomizedViewController.swift"; sourceTree = "<group>"; };
 		271B93DC24B30DAC001D6FF0 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = "Compact View/PageViewController.swift"; sourceTree = "<group>"; };
 		271B93E124B3150F001D6FF0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = "Compact View/FirstViewController.swift"; sourceTree = "<group>"; };
 		271B93E324B3153D001D6FF0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = "Compact View/SecondViewController.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 			name = CompactView;
 			sourceTree = "<group>";
 		};
+		271B551E24B6C46C00B7F25A /* Customized View */ = {
+			isa = PBXGroup;
+			children = (
+				271B551F24B6C4C100B7F25A /* CustomizedViewController.swift */,
+			);
+			name = "Customized View";
+			sourceTree = "<group>";
+		};
 		271B93E524B5C35B001D6FF0 /* Customized Step */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +272,7 @@
 			children = (
 				86B89A9C1AB2C0A5001626A4 /* AppDelegate.swift */,
 				03F7FD9E23959DD500432EF6 /* SceneDelegate.swift */,
+				271B551E24B6C46C00B7F25A /* Customized View */,
 				271B93EE24B5CD8E001D6FF0 /* Customized Active Step */,
 				271B93E524B5C35B001D6FF0 /* Customized Step */,
 				2700FEC424ADF32C00CDDB0C /* CompactView */,
@@ -464,6 +475,7 @@
 				2700FEC924AF09B200CDDB0C /* CompactViewController.swift in Sources */,
 				BC9A27431B82742600BDA84D /* ChartDataSources.swift in Sources */,
 				BC9A273D1B82741900BDA84D /* ResultTableViewProviders.swift in Sources */,
+				271B552024B6C4C100B7F25A /* CustomizedViewController.swift in Sources */,
 				BC9A273F1B82741900BDA84D /* TextImageTableViewCell.swift in Sources */,
 				271B93EB24B5C4E5001D6FF0 /* CustomizedResult.swift in Sources */,
 				86B89AA51AB2C0A5001626A4 /* AppDelegate.swift in Sources */,
