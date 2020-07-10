@@ -36,11 +36,10 @@ class CustomizedViewController: UIViewController {
         button02.translatesAutoresizingMaskIntoConstraints = false
         centerStackView.addArrangedSubview(button02)
         
-        var newSwitch:UISwitch
+        var newView: FullSegmentedView
         for _ in 0...100 {
-            newSwitch = UISwitch()
-            newSwitch.isOn = true
-            centerScrollView.addSubview(newSwitch)
+            newView = FullSegmentedView()
+            centerStackView.addArrangedSubview(newView)
         }
         
         
