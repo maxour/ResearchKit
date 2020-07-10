@@ -17,46 +17,45 @@ internal class FullSegmentedView: UIView {
         return label
     }()
  
-/*
     public let valueSegmentedControl: UISegmentedControl = {
-        let segmentdControl = UISegmentedControl()
+        let segmentdControl = UISegmentedControl(items: ["選択肢1", "選択肢2"])
         segmentdControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentdControl.setTitle("選択肢1", forSegmentAt: 0)
-        segmentdControl.setTitle("選択肢2", forSegmentAt: 1)
         return segmentdControl
     }()
     
-    private let contentStackView: UIStackView
     private let contentSpacing: CGFloat = 10.0
-*/
  
     private override init(frame: CGRect) {
-//        contentStackView = UIStackView(arrangedSubviews: [nameLabel, valueSegmentedControl])
         super.init(frame: frame)
         setup()
     }
     
     internal required init?(coder aDecoder: NSCoder) {
-//        contentStackView = UIStackView(arrangedSubviews: [nameLabel, valueSegmentedControl])
-//        contentStackView.axis = .vertical
         super.init(coder: aDecoder)
         setup()
     }
     
     internal func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
-//        contentStackView.spacing = contentSpacing
-//        contentStackView.axis = .vertical
-//        self.addSubview(contentStackView)
         self.addSubview(nameLabel)
-        setUpConstraints()
+        self.addSubview(valueSegmentedControl)
+        setUpConstraintsLeft(nameLabel)
+        setUpConstraintsRight(valueSegmentedControl)
     }
     
-    internal func setUpConstraints() {
-        let constraintY = NSLayoutConstraint(item: nameLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 10)
-        let constraintX = NSLayoutConstraint(item: nameLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
-        let constraintWidth = NSLayoutConstraint(item: nameLabel, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 4/5, constant: 0)
-        let constraintHeight = NSLayoutConstraint(item: nameLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1/2, constant: 0)
+    internal func setUpConstraintsLeft(_ view: UIView) {
+        let constraintY = NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        let constraintX = NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0)
+        let constraintWidth = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1/2, constant: 0)
+        let constraintHeight = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0)
+        self.addConstraints([constraintY, constraintX, constraintWidth, constraintHeight])
+    }
+    
+    internal func setUpConstraintsRight(_ view: UIView) {
+        let constraintY = NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        let constraintX = NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0)
+        let constraintWidth = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1/2, constant: 0)
+        let constraintHeight = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0)
         self.addConstraints([constraintY, constraintX, constraintWidth, constraintHeight])
     }
 }
