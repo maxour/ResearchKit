@@ -22,6 +22,7 @@ class CustomizedViewController: UIViewController {
         centerStackView.backgroundColor = .none
 
         // Do any additional setup after loading the view.
+/*
         let backgroundColor01 = UIColor.lightGray
         let button01:UIButton = UIButton()
         button01.setTitle("テストボタン", for: .normal)
@@ -35,11 +36,17 @@ class CustomizedViewController: UIViewController {
         button02.backgroundColor = backgroundColor02
         button02.translatesAutoresizingMaskIntoConstraints = false
         centerStackView.addArrangedSubview(button02)
-        
-        var newView: FullSegmentedView
-        for _ in 0...100 {
-            newView = FullSegmentedView()
-            centerStackView.addArrangedSubview(newView)
+*/
+        var newView: UIView
+        for row in 0...60 {
+            if (row % 2 == 0) {
+                newView = SimpleSegmentedView()
+                centerStackView.addArrangedSubview(newView)
+            } else {
+                newView = FullSegmentedView()
+                centerStackView.addArrangedSubview(newView)
+            }
+            
         }
         
         
