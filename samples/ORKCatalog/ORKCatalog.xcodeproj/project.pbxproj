@@ -22,6 +22,10 @@
 		271B93F224B5CDF4001D6FF0 /* CustomizedActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B93F124B5CDF4001D6FF0 /* CustomizedActiveStep.swift */; };
 		271B93F424B5CE0A001D6FF0 /* CustomizedActiveResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B93F324B5CE0A001D6FF0 /* CustomizedActiveResult.swift */; };
 		271B93F624B5CE4F001D6FF0 /* CustomizedActiveContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271B93F524B5CE4F001D6FF0 /* CustomizedActiveContentView.swift */; };
+		276625DB24BC5BA600208A14 /* UnitTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276625DA24BC5BA600208A14 /* UnitTextFieldView.xib */; };
+		276625E024BC5FBB00208A14 /* UnitTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */; };
+		276625E324BC684700208A14 /* SimpleLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276625E124BC684700208A14 /* SimpleLabelViewController.swift */; };
+		276625E424BC684700208A14 /* SimpleLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276625E224BC684700208A14 /* SimpleLabelViewController.xib */; };
 		27C252FC24B7F91900E3D62D /* SimpleSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */; };
 		27C252FE24B8100900E3D62D /* FullSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C252FD24B8100900E3D62D /* FullSegmentedView.swift */; };
 		3E39B9FB1ABF682D00C2ABE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E39B9F91ABF682D00C2ABE5 /* Main.storyboard */; };
@@ -131,6 +135,10 @@
 		271B93F124B5CDF4001D6FF0 /* CustomizedActiveStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedActiveStep.swift; sourceTree = "<group>"; };
 		271B93F324B5CE0A001D6FF0 /* CustomizedActiveResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedActiveResult.swift; sourceTree = "<group>"; };
 		271B93F524B5CE4F001D6FF0 /* CustomizedActiveContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedActiveContentView.swift; sourceTree = "<group>"; };
+		276625DA24BC5BA600208A14 /* UnitTextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnitTextFieldView.xib; sourceTree = "<group>"; };
+		276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTextFieldView.swift; sourceTree = "<group>"; };
+		276625E124BC684700208A14 /* SimpleLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabelViewController.swift; sourceTree = "<group>"; };
+		276625E224BC684700208A14 /* SimpleLabelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleLabelViewController.xib; sourceTree = "<group>"; };
 		27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSegmentedView.swift; sourceTree = "<group>"; };
 		27C252FD24B8100900E3D62D /* FullSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSegmentedView.swift; sourceTree = "<group>"; };
 		3E39B9E81ABF675000C2ABE5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -237,6 +245,10 @@
 			children = (
 				27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */,
 				27C252FD24B8100900E3D62D /* FullSegmentedView.swift */,
+				276625DA24BC5BA600208A14 /* UnitTextFieldView.xib */,
+				276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */,
+				276625E124BC684700208A14 /* SimpleLabelViewController.swift */,
+				276625E224BC684700208A14 /* SimpleLabelViewController.xib */,
 			);
 			path = "View Components";
 			sourceTree = "<group>";
@@ -465,8 +477,10 @@
 				3E39B9FB1ABF682D00C2ABE5 /* Main.storyboard in Resources */,
 				BAAC3FD620C4EF1C0065B9E1 /* ResearchKit.pdf in Resources */,
 				B125E3D41B1BA47600FF8759 /* tap.aif in Resources */,
+				276625DB24BC5BA600208A14 /* UnitTextFieldView.xib in Resources */,
 				3E39B9FE1ABF683700C2ABE5 /* LaunchScreen.xib in Resources */,
 				3ED967B81AC13D37007E2D83 /* Localizable.strings in Resources */,
+				276625E424BC684700208A14 /* SimpleLabelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				271B93E424B3153D001D6FF0 /* SecondViewController.swift in Sources */,
+				276625E324BC684700208A14 /* SimpleLabelViewController.swift in Sources */,
 				27C252FC24B7F91900E3D62D /* SimpleSegmentedView.swift in Sources */,
 				271B93E224B3150F001D6FF0 /* FirstViewController.swift in Sources */,
 				BC9A27451B82742600BDA84D /* ChartTableViewCells.swift in Sources */,
@@ -491,6 +506,7 @@
 				2700FEC924AF09B200CDDB0C /* CompactViewController.swift in Sources */,
 				BC9A27431B82742600BDA84D /* ChartDataSources.swift in Sources */,
 				BC9A273D1B82741900BDA84D /* ResultTableViewProviders.swift in Sources */,
+				276625E024BC5FBB00208A14 /* UnitTextFieldView.swift in Sources */,
 				271B552024B6C4C100B7F25A /* CustomizedViewController.swift in Sources */,
 				BC9A273F1B82741900BDA84D /* TextImageTableViewCell.swift in Sources */,
 				271B93EB24B5C4E5001D6FF0 /* CustomizedResult.swift in Sources */,

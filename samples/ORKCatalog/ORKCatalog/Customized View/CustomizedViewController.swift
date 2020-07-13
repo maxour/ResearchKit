@@ -39,14 +39,16 @@ class CustomizedViewController: UIViewController {
 */
         var newView: UIView
         for row in 0...60 {
-            if (row % 2 == 0) {
+            if (row % 3 == 0) {
                 newView = SimpleSegmentedView()
                 centerStackView.addArrangedSubview(newView)
-            } else {
+            } else if (row % 3 == 1) {
                 newView = FullSegmentedView()
                 centerStackView.addArrangedSubview(newView)
+            } else {
+                newView = UnitTextFieldView()
+                centerStackView.addArrangedSubview(newView)
             }
-            
         }
         
         
