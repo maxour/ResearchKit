@@ -10,10 +10,23 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var centerStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var newView: UIView
+        for row in 0...60 {
+            if (row % 2 == 0) {
+                newView = SimpleSegmentedView()
+                centerStackView.addArrangedSubview(newView)
+            } else {
+                newView = FullSegmentedView()
+                centerStackView.addArrangedSubview(newView)
+            }
+            
+        }
     }
     
 

@@ -746,7 +746,7 @@
                         <viewControllerLayoutGuide type="top" id="eaS-Wj-urM"/>
                         <viewControllerLayoutGuide type="bottom" id="hgb-aR-kVz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XOs-2B-7np">
+                    <view key="view" contentMode="scaleToFill" id="XOs-2B-7np" customClass="Second">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -768,21 +768,9 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dbo-RH-U2m">
                                         <rect key="frame" x="0.0" y="0.0" width="347" height="3000"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXS-FY-ZwD">
-                                                <rect key="frame" x="0.0" y="0.0" width="347" height="3000"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="3000" id="vac-cP-GF2"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
                                         <constraints>
-                                            <constraint firstItem="FXS-FY-ZwD" firstAttribute="top" secondItem="dbo-RH-U2m" secondAttribute="top" id="ITe-rR-gcH"/>
-                                            <constraint firstItem="FXS-FY-ZwD" firstAttribute="centerX" secondItem="dbo-RH-U2m" secondAttribute="centerX" id="JWa-0u-qaJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="FXS-FY-ZwD" secondAttribute="trailing" id="KPX-Mh-qbU"/>
-                                            <constraint firstItem="FXS-FY-ZwD" firstAttribute="leading" secondItem="dbo-RH-U2m" secondAttribute="leading" id="o46-17-pVu"/>
-                                            <constraint firstAttribute="width" constant="347" id="vMJ-zS-cvf"/>
+                                            <constraint firstAttribute="height" constant="3000" id="KbE-9U-Vha"/>
+                                            <constraint firstAttribute="width" constant="347" id="fXD-vP-HTV"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -808,6 +796,9 @@
                             <constraint firstItem="g0x-b8-g84" firstAttribute="top" secondItem="jHY-ET-0Qb" secondAttribute="bottom" constant="8" id="uii-hJ-mct"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="centerStackView" destination="dbo-RH-U2m" id="hcI-vz-vaZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uct-YB-BFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3gc-Sf-3zR" userLabel="Exit" sceneMemberID="exit"/>
@@ -829,18 +820,19 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-Ey-4dM">
                                 <rect key="frame" x="16" y="102" width="343" height="554"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-Y2-nQd">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-Y2-nQd">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="3000"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3000" id="Zhk-hV-Bdo"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="top" secondItem="xKu-t5-HQ0" secondAttribute="top" id="36J-e1-3uj"/>
-                                    <constraint firstAttribute="width" secondItem="8JT-Y2-nQd" secondAttribute="width" id="55d-np-3ZS"/>
-                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="bottom" secondItem="xKu-t5-HQ0" secondAttribute="bottom" id="6gs-8z-cw0"/>
-                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="centerX" secondItem="jvn-Ey-4dM" secondAttribute="centerX" id="Pfp-ui-2z4"/>
-                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="leading" secondItem="jvn-Ey-4dM" secondAttribute="leading" id="XxV-KJ-fTH"/>
-                                    <constraint firstAttribute="trailing" secondItem="8JT-Y2-nQd" secondAttribute="trailing" id="nG7-fD-kZ4"/>
-                                    <constraint firstAttribute="bottom" secondItem="8JT-Y2-nQd" secondAttribute="bottom" id="nVM-ck-9wS"/>
+                                    <constraint firstAttribute="bottom" secondItem="8JT-Y2-nQd" secondAttribute="bottom" constant="-2446" id="0xj-Kf-43b"/>
+                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="leading" secondItem="xKu-t5-HQ0" secondAttribute="leading" id="Bjo-si-4To"/>
+                                    <constraint firstAttribute="trailing" secondItem="8JT-Y2-nQd" secondAttribute="trailing" id="QfF-z5-u1F"/>
+                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="centerX" secondItem="jvn-Ey-4dM" secondAttribute="centerX" id="XYN-Qs-xp3"/>
+                                    <constraint firstItem="8JT-Y2-nQd" firstAttribute="top" secondItem="jNg-8Y-z2B" secondAttribute="top" id="dI5-51-FW6"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="jNg-8Y-z2B"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="xKu-t5-HQ0"/>
