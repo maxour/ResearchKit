@@ -26,6 +26,8 @@
 		276625E024BC5FBB00208A14 /* UnitTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */; };
 		276625E324BC684700208A14 /* SimpleLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276625E124BC684700208A14 /* SimpleLabelViewController.swift */; };
 		276625E424BC684700208A14 /* SimpleLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276625E224BC684700208A14 /* SimpleLabelViewController.xib */; };
+		27B3643824BEDC7000B3E9F0 /* CustomizedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3643724BEDC7000B3E9F0 /* CustomizedTableViewController.swift */; };
+		27B3643D24BEDFCA00B3E9F0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3643C24BEDFCA00B3E9F0 /* TableViewCell.swift */; };
 		27C252FC24B7F91900E3D62D /* SimpleSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */; };
 		27C252FE24B8100900E3D62D /* FullSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C252FD24B8100900E3D62D /* FullSegmentedView.swift */; };
 		3E39B9FB1ABF682D00C2ABE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E39B9F91ABF682D00C2ABE5 /* Main.storyboard */; };
@@ -139,6 +141,8 @@
 		276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTextFieldView.swift; sourceTree = "<group>"; };
 		276625E124BC684700208A14 /* SimpleLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabelViewController.swift; sourceTree = "<group>"; };
 		276625E224BC684700208A14 /* SimpleLabelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleLabelViewController.xib; sourceTree = "<group>"; };
+		27B3643724BEDC7000B3E9F0 /* CustomizedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomizedTableViewController.swift; path = "Customized View/CustomizedTableViewController.swift"; sourceTree = "<group>"; };
+		27B3643C24BEDFCA00B3E9F0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSegmentedView.swift; sourceTree = "<group>"; };
 		27C252FD24B8100900E3D62D /* FullSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSegmentedView.swift; sourceTree = "<group>"; };
 		3E39B9E81ABF675000C2ABE5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				271B551F24B6C4C100B7F25A /* CustomizedViewController.swift */,
+				27B3643724BEDC7000B3E9F0 /* CustomizedTableViewController.swift */,
 			);
 			name = "Customized View";
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */,
 				276625E124BC684700208A14 /* SimpleLabelViewController.swift */,
 				276625E224BC684700208A14 /* SimpleLabelViewController.xib */,
+				27B3643C24BEDFCA00B3E9F0 /* TableViewCell.swift */,
 			);
 			path = "View Components";
 			sourceTree = "<group>";
@@ -513,8 +519,10 @@
 				86B89AA51AB2C0A5001626A4 /* AppDelegate.swift in Sources */,
 				03F7FD9F23959DD500432EF6 /* SceneDelegate.swift in Sources */,
 				271B93F424B5CE0A001D6FF0 /* CustomizedActiveResult.swift in Sources */,
+				27B3643D24BEDFCA00B3E9F0 /* TableViewCell.swift in Sources */,
 				271B93F024B5CDD5001D6FF0 /* CustomizedActiveStepViewController.swift in Sources */,
 				BC9A273C1B82741900BDA84D /* ImageTableViewCell.swift in Sources */,
+				27B3643824BEDC7000B3E9F0 /* CustomizedTableViewController.swift in Sources */,
 				BC9A27351B82740D00BDA84D /* TaskListViewController.swift in Sources */,
 				271B93F224B5CDF4001D6FF0 /* CustomizedActiveStep.swift in Sources */,
 				BC9A27341B82740D00BDA84D /* TaskListRow.swift in Sources */,
