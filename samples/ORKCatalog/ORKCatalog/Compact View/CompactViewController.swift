@@ -10,6 +10,7 @@ import UIKit
 
 class CompactViewController: UIViewController {
 
+    @IBOutlet weak var barCodeReaderButton: UIButton!
     @IBOutlet weak var isFeverField: UISwitch!
     @IBOutlet weak var isBudouenField: UISwitch!
     @IBOutlet weak var numBenBeforeField: UITextField!
@@ -45,6 +46,9 @@ class CompactViewController: UIViewController {
         numBenNowField.text = String(text.prefix(maxLength))
     }
     
+    @IBAction func showBarCodeReader(_ sender: Any) {
+        self.present(BarCodeReaderVC(), animated: true, completion: nil)
+    }
     
     @IBAction func goNext(_ sender: Any) {
         // save current status before go next

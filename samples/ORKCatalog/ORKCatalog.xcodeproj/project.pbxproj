@@ -26,6 +26,7 @@
 		276625E024BC5FBB00208A14 /* UnitTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */; };
 		276625E324BC684700208A14 /* SimpleLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276625E124BC684700208A14 /* SimpleLabelViewController.swift */; };
 		276625E424BC684700208A14 /* SimpleLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276625E224BC684700208A14 /* SimpleLabelViewController.xib */; };
+		27A6803124DA783C00383CA2 /* BarCodeReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6803024DA783C00383CA2 /* BarCodeReaderVC.swift */; };
 		27B3643824BEDC7000B3E9F0 /* CustomizedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3643724BEDC7000B3E9F0 /* CustomizedTableViewController.swift */; };
 		27B3643D24BEDFCA00B3E9F0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3643C24BEDFCA00B3E9F0 /* TableViewCell.swift */; };
 		27C252FC24B7F91900E3D62D /* SimpleSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */; };
@@ -141,6 +142,7 @@
 		276625DF24BC5FBB00208A14 /* UnitTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTextFieldView.swift; sourceTree = "<group>"; };
 		276625E124BC684700208A14 /* SimpleLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLabelViewController.swift; sourceTree = "<group>"; };
 		276625E224BC684700208A14 /* SimpleLabelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleLabelViewController.xib; sourceTree = "<group>"; };
+		27A6803024DA783C00383CA2 /* BarCodeReaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BarCodeReaderVC.swift; path = "Compact View/BarCodeReaderVC.swift"; sourceTree = "<group>"; };
 		27B3643724BEDC7000B3E9F0 /* CustomizedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomizedTableViewController.swift; path = "Customized View/CustomizedTableViewController.swift"; sourceTree = "<group>"; };
 		27B3643C24BEDFCA00B3E9F0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		27C252FB24B7F91900E3D62D /* SimpleSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSegmentedView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				271B93DC24B30DAC001D6FF0 /* PageViewController.swift */,
 				2700FEC624AEFF2400CDDB0C /* QRCodeViewController.swift */,
 				2700FEC824AF09B200CDDB0C /* CompactViewController.swift */,
+				27A6803024DA783C00383CA2 /* BarCodeReaderVC.swift */,
 			);
 			name = CompactView;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				271B93F624B5CE4F001D6FF0 /* CustomizedActiveContentView.swift in Sources */,
 				BC9A27441B82742600BDA84D /* ChartListViewController.swift in Sources */,
 				27C252FE24B8100900E3D62D /* FullSegmentedView.swift in Sources */,
+				27A6803124DA783C00383CA2 /* BarCodeReaderVC.swift in Sources */,
 				2700FEC924AF09B200CDDB0C /* CompactViewController.swift in Sources */,
 				BC9A27431B82742600BDA84D /* ChartDataSources.swift in Sources */,
 				BC9A273D1B82741900BDA84D /* ResultTableViewProviders.swift in Sources */,

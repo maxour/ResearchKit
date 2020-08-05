@@ -53,7 +53,10 @@ class QRCodeViewController: UIViewController {
         qrImageView.image = QRImage
     }
     
-
+    @IBAction func tapView(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 
